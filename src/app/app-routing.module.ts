@@ -6,6 +6,7 @@ import { GameComponent } from './components/game/game.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'local', component: GameComponent },
+  { path: 'remote', component: GameComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

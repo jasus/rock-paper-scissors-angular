@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
+  handPlayer: string;
+  handRival: string;
+
   constructor() { }
 
   ngOnInit() {

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 import { AngularMaterialModule } from './modules/angular-material/angular-material.module';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HomeComponent } from './components/home/home.component';
 import { GameComponent } from './components/game/game.component';
 
@@ -22,7 +23,8 @@ import { GameComponent } from './components/game/game.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
