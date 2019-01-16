@@ -54,4 +54,19 @@ describe('RockPaperScissorsService', () => {
     });
   });
 
+  describe('getHand', () => {
+    it('should return a number', () => {
+
+      const hand = 1
+  
+      service.getHand().subscribe(res => {
+        expect(res).toEqual(hand);
+      });
+  
+      const req = httpMock.expectOne(`${environment.apiURL}/plays/hand`);
+      expect(req.request.method).toBe("GET");
+      req.flush(hand);
+    });
+  });
+
 });
