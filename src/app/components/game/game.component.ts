@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Button, Type } from 'src/app/classes/button';
 import { Game } from 'src/app/classes/game';
 import { Play } from 'src/app/classes/play';
+import { RockPaperScissorsService } from 'src/app/services/rock-paper-scissors.service';
 
 @Component({
   selector: 'app-game',
@@ -17,7 +18,7 @@ export class GameComponent implements OnInit {
   gameMessage: string;
   isRemote: boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private rockPaperScissorsService: RockPaperScissorsService) {
     this.history = [];
   }
 
@@ -29,9 +30,20 @@ export class GameComponent implements OnInit {
     const player = new Button(shot);
     this.handPlayer = player.getType();
 
-    const rival = new Button(this.getRandomHand());
+    if (this.isRemote) {
+      // GET Rival hand
+      this.rockPaperScissorsService.getHand().subscribe(hand => {
 
-    this.game(player, rival);
+        const rival = new Button(hand);
+
+        this.game(player, rival);
+
+      });
+    } else {
+      const rival = new Button(this.getRandomHand());
+
+      this.game(player, rival);
+    }
 
   }
 
