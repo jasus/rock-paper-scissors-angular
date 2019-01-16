@@ -24,6 +24,10 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.isRemote = this.router.url.includes('remote');
+    if(this.isRemote){
+      // GET History
+      this.getHistory();
+    }
   }
 
   public setShot(shot: number) {
@@ -61,11 +65,26 @@ export class GameComponent implements OnInit {
     const play = new Play(gameMessages.getHistoryMessage(), this.handPlayer, this.handRival, new Date());
     this.history.unshift(play);
 
+    // Create a play if is remote game
+    if(this.isRemote){
+      this.rockPaperScissorsService.postPlay(play)
+        .subscribe();
+    }
+
   }
 
   // Get random hand
   private getRandomHand(): number {
     return Math.floor(Math.random() * Object.keys(Type).length / 2);
+  }
+
+  private getHistory(){
+    this.rockPaperScissorsService.getAllHistory()
+      .subscribe(res => {
+        this.history = res;
+      }, error => {
+        console.log(error);
+      });
   }
 
 }
