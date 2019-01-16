@@ -95,7 +95,7 @@ $title-margin-bottom-xl: 20px;
         .scroll{
             height: calc(#{$card-height-xl} - #{$title-height-xl} - #{$title-margin-bottom-xl} 
                             - #{$card-content-padding} - #{$card-content-padding});
-            overflow: scroll;
+            overflow-y: scroll;
 
             .message{
                 text-align: left;
@@ -117,6 +117,26 @@ $title-margin-bottom-xl: 20px;
         margin-bottom: $title-margin-bottom-xl;
         text-align: left;
     }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(241, 241, 241, 0); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 @media only screen and (max-width: 600px){
