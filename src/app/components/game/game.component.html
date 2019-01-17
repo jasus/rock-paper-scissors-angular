@@ -1,0 +1,82 @@
+<div id="game" class="game row">
+    <div class="col col-12 col-sm-12 col-md-12 col-lg-8 col-xl-6 offset-xl-2">
+  
+      <div class="choose-row col-sm-12">
+        <h4>Choose one:</h4>
+      </div>
+  
+      <div class="button-container">
+          <div class="col-sm-4">
+            <button mat-fab (click)="setShot(0)">
+              <fa class="fa-button" name="hand-rock-o" size="3x"></fa>
+            </button>
+          </div>
+          <div class="col-sm-4" (click)="setShot(1)">
+            <button mat-fab>
+              <fa class="fa-button" name="hand-paper-o" size="3x"></fa>
+            </button>
+          </div>
+          <div class="col-sm-4" (click)="setShot(2)">
+            <button mat-fab>
+              <fa class="fa-button" name="hand-scissors-o" size="3x"></fa>
+            </button>
+          </div>
+      </div>
+  
+      <div>
+
+        <div class="players-container">
+          <div class="col-sm-4">
+            <h4 class="players-title">Player</h4>
+          </div>
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4">
+            <h4 class="players-title">Rival</h4>
+          </div>
+        </div>
+  
+        <div class="result-container">
+            <div class="col-sm-4">
+              <fa name="hand-{{handPlayer}}-o" size="5x"></fa>
+            </div>
+    
+            <div class="col-sm-4">
+              <h3>V.S.</h3>
+            </div>
+    
+            <div class="col-sm-4">
+              <fa name="hand-{{handRival}}-o" size="5x"></fa>
+            </div>
+        </div>
+  
+        <div>
+          <div class="col-sm-12">
+            <h3 class="game-message">{{gameMessage}}</h3>
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+    <div class="card-container col col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 offset-xl-1">
+      <mat-card class="card">
+        <div class="card-content black-text">
+          <div class="thumb-tack"></div>
+          <div class="card-title">Score!</div>
+          <div class="scroll">
+            <div *ngFor="let msg of history">
+              <div class="message">
+                <p>-{{msg.message}}</p>
+                <p>Player: <fa name="hand-{{msg.handPlayer}}-o" size="2x"></fa> V.S. Rival: <fa name="hand-{{msg.handRival}}-o" size="2x"></fa></p>
+                <p class="date">{{msg.date | date:'d MMM yy, HH:mm:ss'}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  
+  
+  </div>

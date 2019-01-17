@@ -1,0 +1,25 @@
+.home-content{
+    padding: 150px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    button{
+        width: 385px;
+        height: 125px;
+        font-size: 1.4rem;
+        font-family: Orbitron;
+        background-color: #26a69a;
+        outline: none;
+
+        i{
+            font-size: 30px;
+        }
+
+        &:first-of-type{
+            margin-bottom: 50px;
+        }
+    }
+}
